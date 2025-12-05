@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-import { useLoginForm } from "../hooks/use-login-form"
+import { useRegisterForm } from "../hooks/use-register-form"
 import { useNavigate } from "react-router-dom"
 
 const styles = {
@@ -21,11 +21,11 @@ const styles = {
     inputPassword: "h-11 pr-10 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden",
     passwordToggle: "absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground text-primary hover:text-primary/70 transition-colors",
     button: "w-full h-11 mt-6 select-none",
-    linkButton: "text-primary underline cursor-pointer bg-transparent p-0 align-baseline"
+    linkButton: "text-primary underline cursor-pointer bg-transparent border-0 p-0 align-baseline"
 };
 
-export function LoginForm() {
-    const { username, setUsername, password, setPassword, showPassword, togglePasswordVisibility, isLoading, handleSubmit } = useLoginForm();
+export function RegisterForm() {
+    const { username, setUsername, password, setPassword, showPassword, togglePasswordVisibility, isLoading, handleSubmit } = useRegisterForm();
     const navigate = useNavigate();
 
     return (
@@ -58,18 +58,18 @@ export function LoginForm() {
                     </div>
 
                     <Button type="submit" disabled={isLoading} className={styles.button}>
-                        {isLoading ? "Carregando..." : "Entrar"}
+                        {isLoading ? "Criando conta..." : "Prosseguir"}
                     </Button>
 
                     <p className="text-center mt-4 text-gray-500 text-xs">
-                        Não possui uma conta?{" "}
-                        <button type="button" className={styles.linkButton} onClick={() => navigate("/register")}>
-                            Crie uma conta
+                        Já possui uma conta?{" "}
+                        <button type="button" className={styles.linkButton} onClick={() => navigate("/")}>
+                            Faça login
                         </button>
                     </p>
 
                     <p className="text-center mt-2 text-gray-400 text-xs">
-                        Não compartilhe sua senha com ninguém. Somos responsáveis pela segurança da sua conta.
+                        Ao criar uma conta, você concorda com nossos termos de uso e política de privacidade.
                     </p>
                 </form>
 
