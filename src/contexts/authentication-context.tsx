@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useMemo } from "react";
 
 import type { ReactNode } from "react";
-import type { AuthenticationResponse } from "@/types/identity/authentication-response";
+import type { AuthenticationResponse } from "@/application/features/identity/types/authentication-response";
 
 import { Storage } from "@/utils/storage";
 import { StorageKeys } from "@/constants/storage-keys";

@@ -1,8 +1,8 @@
 import { identityClient } from "@/lib/http-client";
 import { Result } from "@/types/common/result";
 
-import type { AuthenticationCredentials } from "@/types/identity/authentication-credentials";
-import type { AuthenticationResponse } from "@/types/identity/authentication-response";
+import type { AuthenticationCredentials } from "@/application/features/identity/types/authentication-credentials";
+import type { AuthenticationResponse } from "@/application/features/identity/types/authentication-response";
 
 export class IdentityClient {
     public static async authenticate(credentials: AuthenticationCredentials): Promise<Result<AuthenticationResponse>> {

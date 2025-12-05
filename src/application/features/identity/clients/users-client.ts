@@ -3,9 +3,9 @@ import { identityClient } from "@/lib/http-client";
 import { Result } from "@/types/common/result";
 import { QueryParametersParser } from "@/utils/query-parameters-parser";
 
-import type { GroupBasicDetails } from "@/types/group/group-basic-details";
-import type { UserDetailsScheme } from "@/types/user/user-details.scheme";
-import type { UsersFetchParameters } from "@/types/user/users-fetch-parameters.scheme";
+import type { GroupBasicDetails } from "@/application/features/identity/types/group-basic-details";
+import type { UserDetailsScheme } from "@/application/features/identity/types/user-details.scheme";
+import type { UsersFetchParameters } from "@/application/features/identity/types/users-fetch-parameters.scheme";
 import type { Pagination } from "@/types/common/pagination";
 
 export class UsersClient {

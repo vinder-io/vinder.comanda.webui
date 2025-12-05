@@ -8,7 +8,7 @@ import { UserAvatar } from "../user-avatar";
 import { useAuthenticationState } from "@/contexts/authentication-context";
 
 import { JwtParser } from "@/utils/jwt-parser";
-import type { UserDetails } from "@/types/identity/user-details";
+import type { UserDetails } from "@/application/features/identity/types/user-details";
 
 const navigationItems = [
     { id: "users", label: "Users", icon: User, active: true },

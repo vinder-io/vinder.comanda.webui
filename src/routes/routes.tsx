@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import LoginPage from "@/application/pages/identity/page"
+import LoginPage from "@/application/features/identity/pages/page"
 
 export default function AppRoutes() {
     return (

@@ -1,4 +1,4 @@
-import { LoginForm } from "./components/login-form"
+import { LoginForm } from "../components/login-form"
 
 const styles = {
     wrapper: "min-h-screen flex items-center justify-center bg-background",

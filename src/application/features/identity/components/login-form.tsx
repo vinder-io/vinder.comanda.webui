@@ -1,6 +1,3 @@
-import type React from "react"
-import { useState } from "react"
-
 import { Card, CardContent } from "@/components/ui/card"
 import { User, Eye, EyeOff } from "lucide-react"
 
@@ -8,11 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-import toast from "react-hot-toast"
-
-import { useAuthenticationState } from "@/contexts/authentication-context"
-import { useNavigate } from "react-router-dom"
-import { AuthenticationHook } from "@/hooks/authentication-hook"
+import { useLoginForm } from "../hooks/use-login-form"
 
 const styles = {
     card: "border-0 shadow-none",
@@ -30,39 +23,7 @@ const styles = {
 };
 
 export function LoginForm() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-
-    const { setAuthenticationState } = useAuthenticationState();
-    const navigate = useNavigate();
-
-    const authenticate = AuthenticationHook.useAuthenticate();
-    const isLoading = authenticate.isPending;
-
-    const handleSubmit = async (event: React.FormEvent) => {
-        event.preventDefault();
-
-        authenticate.mutate(
-            { username, password },
-            {
-                onSuccess: (result) => {
-                    if (!result.isSuccess) {
-                        toast.error("Oops! Verifique seu e-mail e senha.");
-                        return;
-                    }
-
-                    toast.success("Bem vindo de volta!");
-
-                    setAuthenticationState(result.value!);
-                    navigate("/dashboard");
-                },
-                onError: () => {
-                    toast.error("Erro inesperado ao autenticar.");
-                },
-            }
-        );
-    };
+    const { username, setUsername, password, setPassword, showPassword, togglePasswordVisibility, isLoading, handleSubmit } = useLoginForm();
 
     return (
         <Card className={styles.card}>
@@ -81,9 +42,9 @@ export function LoginForm() {
                         <Label htmlFor="password" className={styles.label}>Senha</Label>
                         <div className="relative">
                             <Input id="password" type={showPassword ? "text" : "password"} value={password} disabled={isLoading}
-                                onChange={(event) => setPassword(event.target.value)} className={styles.inputPassword} required/>
+                                onChange={(event) => setPassword(event.target.value)} className={styles.inputPassword} required />
 
-                            <button type="button" onClick={() => setShowPassword(!showPassword)} disabled={isLoading} className={styles.passwordToggle}>
+                            <button type="button" onClick={togglePasswordVisibility} disabled={isLoading} className={styles.passwordToggle}>
                                 {showPassword ? (
                                     <EyeOff className="h-4 w-4" />
                                 ) : (

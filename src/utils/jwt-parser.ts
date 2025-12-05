@@ -1,4 +1,4 @@
-import type { UserDetails } from "@/types/identity/user-details";
+import type { UserDetails } from "@/application/features/identity/types/user-details";
 
 export class JwtParser {
     public static decode(token: string): any {

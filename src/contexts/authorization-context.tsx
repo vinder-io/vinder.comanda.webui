@@ -5,7 +5,7 @@ import { useAuthenticationState } from "./authentication-context";
 import { JwtParser } from "@/utils/jwt-parser";
 
 import { String } from "@/constants/string";
-import { UsersClient } from "@/clients/users-client";
+import { UsersClient } from "@/application/features/identity/clients/users-client";
 
 type AuthorizationStateContextParameters = {
     permissions: string[];
@@ -24,7 +24,7 @@ export const AuthorizationStateProvider = ({ children }: { children: ReactNode }
     const [groups, setGroups] = useState<string[]>([]);
 
     useEffect(() => {
-        // We call this "metadata" because it represents user-related authorization data,
+        // we call this "metadata" because it represents user-related authorization data,
         // such as permissions and groups, which are essentially metadata about the user's access rights.
         loadAuthorizationMetadata(accessToken, setPermissions, setGroups);
     }, [accessToken]);
