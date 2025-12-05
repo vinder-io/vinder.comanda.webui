@@ -7,7 +7,7 @@ import type { ProfileScheme } from "@/application/features/profile/types/profile
 export class ProfileClient {
     public static async createProfile(profile: ProfileCreationScheme): Promise<Result<ProfileScheme>> {
         try {
-            const response = await httpClient.post<ProfileScheme>("/owners", profile);
+            const response = await httpClient.post<ProfileScheme>("profiles/owners", profile);
             return Result.success<ProfileScheme>(response.data);
         }
         catch (error: any) {

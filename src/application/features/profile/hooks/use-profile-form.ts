@@ -67,9 +67,9 @@ export function useProfileForm() {
                         return;
                     }
 
-                    toast.success("Perfil criado com sucesso! Bem-vindo!");
+                    toast.success("Perfil criado com sucesso! Agora escolha seu plano.");
 
-                    navigate("/");
+                    navigate("/subscription", { state: { userId, username }});
                 },
                 onError: () => {
                     toast.error("Erro inesperado ao criar perfil.");
