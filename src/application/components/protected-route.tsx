@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 
 import { Navigate } from "react-router-dom";
-import { useAuthorizationState } from "@/contexts/authorization-context";
+import { useAuthorizationState } from "@/application/features/identity/contexts/authorization-context";
 
 type PermissionRouteProps = {
     children: JSX.Element;

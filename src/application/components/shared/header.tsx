@@ -5,7 +5,7 @@ import { User, Key, Users, Layers, Settings, BookOpen } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { UserAvatar } from "../user-avatar";
-import { useAuthenticationState } from "@/contexts/authentication-context";
+import { useAuthenticationState } from "@/application/features/identity/contexts/authentication-context";
 
 import { JwtParser } from "@/utils/jwt-parser";
 import type { UserDetails } from "@/application/features/identity/types/user-details";

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
 
-import { useAuthenticationState } from "@/contexts/authentication-context";
+import { useAuthenticationState } from "@/application/features/identity/contexts/authentication-context";
 import { useAuthenticate } from "@/application/features/identity/hooks/authentication-hook";
 
 export function useLoginForm() {
