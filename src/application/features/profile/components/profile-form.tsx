@@ -29,16 +29,9 @@ export function ProfileForm() {
                         <Label htmlFor="fullName" className={styles.label}>Nome completo</Label>
                         <div className="relative">
                             <User className={styles.icon} />
-                            <Input 
-                                id="fullName" 
-                                type="text" 
-                                value={fullName} 
-                                disabled={isLoading}
-                                onChange={(event) => setFullName(event.target.value)} 
-                                className={styles.input}
-                                placeholder="João Silva"
-                                required 
-                            />
+                            <Input id="fullName" type="text" value={fullName} disabled={isLoading}
+                                onChange={(event) => setFullName(event.target.value)} className={styles.input}
+                                placeholder="João Silva" required />
                         </div>
                         <p className="text-xs text-muted-foreground">Digite seu nome completo</p>
                     </div>
@@ -47,16 +40,9 @@ export function ProfileForm() {
                         <Label htmlFor="phoneNumber" className={styles.label}>Telefone</Label>
                         <div className="relative">
                             <Phone className={styles.icon} />
-                            <Input 
-                                id="phoneNumber" 
-                                type="tel" 
-                                value={phoneNumber} 
-                                disabled={isLoading}
-                                onChange={(event) => setPhoneNumber(event.target.value)} 
-                                className={styles.input}
-                                placeholder="(11) 98765-4321"
-                                required 
-                            />
+                            <Input id="phoneNumber" type="tel" value={phoneNumber} disabled={isLoading}
+                                onChange={(event) => setPhoneNumber(event.target.value)} className={styles.input}
+                                placeholder="(11) 98765-4321" required />
                         </div>
                         <p className="text-xs text-muted-foreground">Número com DDD</p>
                     </div>
